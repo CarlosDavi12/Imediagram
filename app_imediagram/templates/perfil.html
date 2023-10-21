@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Perfil - Imediagram</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h1>Perfil de {{ usuario.username }}</h1>
+        <p>Bem-vindo ao seu perfil.</p>
+        {% if form %}
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <label for="foto">Foto</label>
+                {{ form.foto(class="input-field") }}
+                {{ form.botao_confirmacao(class="button") }}
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

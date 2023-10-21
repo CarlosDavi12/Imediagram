@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Homepage - Imediagram</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h1>Bem-vindo ao Imediagram</h1>
+        <p>Faça login para acessar sua conta.</p>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <label for="email">E-mail</label>
+            {{ form.email(class="input-field") }}
+            <label for="senha">Senha</label>
+            {{ form.senha(class="input-field") }}
+            {{ form.botao_confirmacao(class="button") }}
+        </form>
+        <p>Não tem uma conta? <a href="{{ url_for('criar_conta') }}">Criar Conta</a></p>
+    </div>
+</body>
+</html>
